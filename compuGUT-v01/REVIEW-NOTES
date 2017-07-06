@@ -1,0 +1,54 @@
+In this document we include notes based on questions and comments pres-
+ented to us by external software reviewers. If you have additional que-
+stions, please contact Arun Moorthy (arunsmoorthy@gmail.com) and we wi-
+ll include these ideas for future updates. 
+
+COMMENTS:
+Plotting using the "knitr" package in R allows us to create interactive
+html documents that a user can use to explore the data set. Unfortunat-
+ely, these packages are not developed by us and so we can not guarantee
+they will always be operational. From our experience, the "knitr" pack-
+age works with R3.2 and greater. The example folders for "Simple Simul-
+ation", "Irregular Simulation" and "Meal Experiments" contain scripts
+for creating these interactive plots. To execute the script, ensure th-
+e permissions on "quick-plot.sh" are set to executable, and run:
+
+$ ./quick-plot.sh
+
+If you do not already have "knitr" installed in your system, you can 
+install "knitr" by opening an instance of R and running the command:
+
+install.packages("knitr", dependencies = TRUE)
+
+For compuGUT users that cannot use the "knitr" package, we have inclu-
+ded an r-script titled "animation-plotter.R" in the MinimalExample fo-
+lder. This script will be automatically called when executing:
+
+$ ./run-simulation.sh
+
+in the MinimalExample folder. The "run-simulation" script automaticall-
+y organizes the simulation results (raw data, figures, input files) in 
+a folder named by system date. 
+
+NOTE: If you do not have R installed on your system, you can download
+a stable edition using the following terminal command:
+
+$ sudo apt-get install r-base
+
+Please contact us if you have issues installing gnu c compilers for 
+compiling the c source code.
+
+
+
+QUESTIONS:
+
+Q: Does altering parameter variance (during stochastic simulations) 
+affect every parameter or cant this be modified to chosen parameter(s)?
+
+A: At present, the change in variance affects all biochemical 
+parameters (kinetic rates, half-saturation concentrations, exchange, 
+etc.), but parameter-by-parameter modifications can be done within the 
+source code. Please contact us if you need help altering the source 
+code.
+
+ 

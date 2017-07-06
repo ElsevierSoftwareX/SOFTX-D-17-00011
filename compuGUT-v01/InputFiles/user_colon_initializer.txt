@@ -1,0 +1,12 @@
+# sample compuGUTv04a1 User Colon Initializer
+# Arun S. Moorthy, University of Guelph, 2014
+#
+# Primary Inputs
+50.0	p0 - InitialMucus_gpL	
+10.0 	p1 - InitialSDBiomass_gpL 
+2.0 	p2 - InitialLDBiomass_gpL 
+8.0  	p3 - InitialHDABiomass_gpL
+0.05	p4 - InitialHDMBiomass_gpL
+
+
+

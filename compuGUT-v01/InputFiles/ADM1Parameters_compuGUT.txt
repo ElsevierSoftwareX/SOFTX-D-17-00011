@@ -1,0 +1,181 @@
+# MODIFIED YIELD COEFFICIENTS
+# Default Parameters involved in Anaerobic Digestion (ADM1)
+#
+# Adapted from Munoz-Tamayo, 2010
+# Modied Yields and kinetic rates to be in units of gram/gram
+#
+# Arun Moorthy and Hermann Eberl, 2013, Biophysics Interdepartmental Program
+#
+# To be used during "compuGUT_fm" execution
+# Anaerobic Digestion of Fiber Process summary:
+#
+#
+# Complex carbohydrates are HYDROLYZED to monomer sugars, which is then
+# converted into (1) lactate and (2) three short-chain fatty acids (SCFAs - acetate,
+# proprionate, butyrate) through ACIDOGENESIS (lactate is also further
+# converted to SCFAs). The SCFAs  are then converted to acetate through
+# ACETOGENESIS or methane through METHANOGENESIS. 
+#
+# Hydrolysis is accomplished using enzymes that are thought to be produced by
+# sugard degrading bacteria because the sugar degrading bacteria gain
+# immediate benefit from the production of monomer sugar.
+#
+# The conversion of monomer sugar is accomplished directly by sugar degrading
+# bacteria (SD Bacteria). 
+#
+# The conversion of lactate is accomplished directly by lactate degrading
+# bacteria (LD Bacteria).
+#
+# The conversion of SCFAs to acetate is accomplished by Hydrogen Degrading
+# Acetogens (HDA), and the conversion of SCFAs to methane is accomplished by
+# Hydrogen Degrading Methanogens (HDM).
+#
+# These four bacterial groups will eventually die/decay and become a complex
+# carbohydrate. 
+#
+# As such, the anaerobic digestion of carbohydrate is a system of 9 processes
+# 1) Hydrolysis
+# 2) Glucose Utilization
+# 3) Lactate Utilization
+# 4) Acidogenesis
+# 5) Methanogenesis
+# 6) Death of SD Bacteria
+# 7) Death of LD Bacteria
+# 8) Death of HDA
+# 9) Death of HDM
+#
+# With each process having associated YIELDS of other components, and KINETIC
+# RATES (specific growth, half saturation, etc). These parameters are defined below.
+
+
+# Physical Parameters
+0.08314          p0 - Gas constant bar/(M K) - R #
+200              p1 - Liquid gas transfer rate (1/d) - kLa #
+0.00156          p2 - Henry's Law Coefficient For Hydrogen gas (g_liq/L_liq * bar_gas) at 25 C - KH_h2_s
+0.02246328       p3 - Henry's Law Coefficient For Methane gas (g_liq/L_liq * bar_gas) at 25 C - KH_ch4_s
+1.5403325        p4 - Henry's Law Coefficient For Carbondioxide gas (g_liq/L_liq * bar_gas) at 25 C - KJ_co2_s
+
+# pH Inhibition Parameters
+6.69            p5 - pH_upper 
+5.8             p6 - pH_lower 
+
+# Yield Coefficients
+
+0.9008       p7  - Yield of monosaccharide sugar from complex carbohydrate (g su /g fiber) - Ysuz  
+0.0909       p8  - Yield of lactate from decay of monosaccharide sugar (g la/ g su) - Ylasu  
+0.00606      p9  - Yield of hydrogen from decay of monosaccharide sugar - Yh2su   
+0.12121      p10 - Yield of acetate from decay of monosaccharide sugar - Yacsu  
+0.14949      p11 - Yield of proprionate from decay of monosaccharide sugar - Yprosu 
+0.04444      p12 - Yield of butyrate from decay of monosaccharide sugar - Ybusu  
+0.13333      p13 - Yield of carbon dioxide from decay of monosaccharide sugar - Yco2su 
+0.16364      p14 - Yield of water from decay of monosaccharide sugar - Yh2osu  
+0.00444      p15 - Yield of hydrogen from decay of lactate - Yh2la  
+0.06667      p16 - Yield of acetate from decay of lactate - Yacla  
+0.16444      p17 - Yield of proprionate from decay of lactate - Yprola 
+0.09778      p18 - Yield of butyrate from decay of lactate - Ybula  
+0.14667      p19 - Yield of carbon dioxide from decay of lactate - Yco2la  
+0.20000      p20 - Yield of water from decay of lactate - Yh2ola 
+
+2.14286         p21 - Yield of acetate from the decay of hydrogen (acetogenesis) - Yach2a 
+-11.000       p22 - Yield of required carbon dioxide to accomplish the decay of hydrogen (acetogenesis) - Yco2h2a
+6.42857            p23 - Yield of water from the decay of hydrogen (acetogenesis) - Yh2oh2a 
+
+0.57143       p24 - Yield of methane from the conversion of hydrogen (methanogenesis) - Ych4h2m 
+-9.42857       p25 - Yield of required carbon dioxide to accomplish the conversion of hydrogen (methanogenesis) - Yco2h2m 
+6.42857            p26 - Yield of water from the decay of hydrogen (methanogenesis) - Yh2oh2m 
+
+0.34242       p27 - Yield of sugar degrading bacteria from glucose utilization - Ysu    
+0.37667       p28 - Yield of lactate degrading bacteria from lactate utilization -Yla     
+4.035714           p29 - Yield of acetogens from homoacetogenesis - Yh2a   
+4.035714            p30 - Yield of methanogens from methanogenesis - Yh2m   
+
+## Kinetic Rate Coeffcient
+
+# Specific rate of hydrolysis
+10.619469027     p31 - khydz   
+
+# Specific consumption rate by bacterial groups
+12.627143363     p32 - kmsu   
+82.108318584     p33 - kmla   
+1.926318584      p34 - kmh2a    
+0.399663717      p35 - kmh2m 
+
+0.1             p36 - kdsu   
+0.1             p37 - kdla   
+0.1             p38 - kdh2a 
+0.1             p39 - kdh2m  
+
+# Half Saturation Constants
+0.26539823       p40 - Kxz    
+0.468416         p41 - Kssu  
+0.59687008       p42 - Ksla 
+0.0034           p43 - Ksh2a  
+0.000003126      p44 - Ksh2m  
+
+# Diffusion (Lumen to Mucus)
+1.6				 p45 - diffusion coefficient for sugar [L/d] - Proximal Colon
+0.88 			 p46 - diffusion rate lactate - Proximal Colon
+0				 p47 -	
+1.32			 p48 -
+1.07			 p49 -
+0.9				 p50 -
+1				 p51 -
+1				 p52 -
+1.6				 p53 -
+0				 p54 -
+0.1			 	 p55 -
+0.1				 p56 -
+0.1				 p57 -
+0.1				 p58 -	
+
+3.8				 p59 - diffusion coefficient for sugar [L/d] - Transverse Colon
+0.43 			 p60 - diffusion rate lactate - Transverse
+0				 p61 -	
+0.64			 p62 -
+0.62			 p63 -
+0.57			 p64 -
+0.6				 p65 -
+0.6				 p66 -
+0.77			 p67 -
+0				 p68 -	
+0.1				 p69 -
+0.1				 p70 -
+0.1				 p71 -
+0.1				 p72 -	
+
+6.3				 p73 - diffusion coefficient for sugar [L/d] - Distal Colon
+2.03 			 p74 - diffusion rate lactate - Distal
+0				 p75 -	
+3.05			 p76 -
+2.47			 p77 -
+2.49			 p78 -
+3				 p79 -
+3				 p80 -
+3.66			 p81 -
+0				 p82 -
+0.1				 p83 -
+0.1				 p84 -
+0.1				 p85 -
+0.1				 p86 -	
+
+
+# Absorption (Mucus to host) or detachment (mucus to lumen)
+0				 p87 -
+12.6			 p88 -
+0				 p89 -
+18.9			 p90 -
+15.32			 p91 -
+12.88			 p92 -
+14				 p93 -
+14				 p94 -
+1.6				 p95 -
+0.1			 	 p96 -
+0.4			 	 p97 -
+0.4				 p98 -
+0.4				 p99 -
+0.4				 p100 -
+
+# pH
+5.8			   p101 - average pH in proximal colon
+6.2				 p102 - average pH in transverse colon
+6.7				 p103 - average pH in distal colon

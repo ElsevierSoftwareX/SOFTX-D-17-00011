@@ -1,0 +1,116 @@
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+compuGUT: An in silico tool for investigating flora composition in the human
+large intestine
+
+Project URL: compugut.sourceforge.net
+
+Revision: 0.4
+Date: 2017/04/10 (INSTRUCTION FILES UPDATED)
+
+Contributors: Arun S. Moorthy and Hermann J. Eberl
+Affiliation: Biophysics Interdepartmental Group, Department of Mathematics and
+             Statistics, University of Guelph, Guelph, Ontario, Canada.
+
+Contact: Arun S. Moorthy, PhD, arunsmoorthy@gmail.com
+
+
+Past Contributors: Kathleen Songin (Summer 2014)
+                   Richard Yam (Summer 2014)
+		   Jesse Knight (Summer 2013)
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
+The compuGUT platform for in silico simulation of intestinal fermentation is an
+open source tool written in C. Compilation of the source (access to advanced
+options) requires libraries developed by the Lawrence Livermore National 
+Library (SUNDIALS), specifically the non-linear solver (KINSOL) and ODE solver 
+(CVODES). Binaries generated in 64-bit Linux using intel and gnu compilers, and
+32-bit linux using the gnu compiler are also provided and may be suitable for 
+some users. Instructions for building from source are provided in this document. 
+Details about the operation of the compuGUT are found in the software technical 
+documentation - Moorthy & Eberl (2015)
+
+Version 1 Details:
+- simulate a model system with primary substrate of fiber, nine subsequent 
+substrates/metabolites, four biomass functional groups with up to ten 
+subdivisions per group.
+- physical analogous is a cylindrical pipe with a fluid media through the 
+center of the pipe (lumen) and fixed medium of constant volume attached to 
+the pipe’s inner wall (mucus). Components are exchanged between media and 
+removed from the system either through the mucus (in to the host) or at the 
+end of the pipe.
+- exchange parameters are defined spatially along the length of the pipe. 
+Digestion parameters are constant in both lumen and mucus environments.
+- dietary input (fiber, bacteria) is prescribed at every hour for a minimum 
+of 24 hours up to a maximum of 365 days. Simulations longer than diet input 
+prescription assume repeated cycling of diet.
+- software developed in a Linux computing environment. Primary tool written 
+in C, with auxiliary scripts written in R and BASH (LINUX).
+- functional coding and modeling strategy promotes continuous adaptation, 
+extension and improvement.
+
+Upcoming versions:
+v02 - mixed diet input
+v03 - antimicrobial activity (as antibiotic or other chemical agent)
+
+Dependencies: 
+-cvODE-2.7.0
+-KINSOL-2.7.0 
+Included in folder: SUNDIALS_LIB, but we recommend users view official 
+documentation (forums, FAQ, etc) available at: 
+http://computation.llnl.gov/casc/sundials/main.html
+
+Technical References:
+Moorthy AS. A computational tool for investigating mechanistic relation-
+ships in the colon-diet-flora complex. (2015) PhD Dissertation. Univers-
+ity of Guelph, Guelph, Ontario, Canada.
+
+Moorthy AS et. al. A spatially continuous model of carbohydrate digesti-
+on and transport in the colon. (2015) PloS One 10(12), e0145309.
+
+-----------------------------------------------------------------------
+-----------------------------------------------------------------------
+
+BUILDING FROM SOURCE:
+1) Download compressed latest version of compuGUT from 
+   project url: compugut.sourceforge.net
+2) Navigate to the download location and uncompress
+   compuGUT. For example, if the latest version was "compuGUT-v01.tar" 
+
+   $ tar -xf compuGUT-v01.tar
+
+3) Navigate to uncompressed folder. For example, if the uncompressed
+   folder was "compuGUT-v01":
+
+   $ cd compuGUT-v01
+
+4) Change permissions of 'quick-compile-X.sh' script to 
+   executable, where X is either 32 or 64 depending on your system.
+
+   $ chmod 744 quick-compile-X.sh
+
+5) Run quick-compile-X.sh script to generate compuGUTv01-lXg
+   binary, where X is either 32 or 64, and 'l' and 'g'
+   indicate that the binary is functional on linux operating
+   systems and was compiled using a gnu compiler (gcc). 
+
+   $ ./quick-compile-X.sh
+
+
+EXECUTING BINARY:
+    Users can also use the pre-compiled binary if relevant.
+
+    $ ./compuGUTv01-l64g
+
+    32-bit binaries will be provided upon request. (Contact Arun Moorthy)
+
+INTERACTIVE R-Scripts:
+    R-scripts change more frequently than c source code so documentation
+    is provided within the scripts. Many additional packages are required 
+    as noted in the scripts themselves.
+
+------------------------------------------------------------------------------
+END OF DOCUMENT
+------------------------------------------------------------------------------

@@ -1,0 +1,29 @@
+# compuGUT: Operation Instructions
+# Created: June 28th, 2014
+
+# Simulation Type:
+1.0		p0 - Simulation Type (1: continuous, 2: 3-stage, 3: gradostat, 4: All [for comparison])
+
+# Sizing and Operation Parameters:	Values from www.webMD.com (Jun 28, 2014)
+1.524		p1 - Length of colon [m] 						~ 5 feet in average human
+0.0762		p2 - Average diameter of colon [m] 	~ 3 inches in average human
+6.096		p3 - Length of small intestine [m] 	~ 20 feet in average human
+0.0254		p4 - Average diameter of SI [m]		~ 1 inch in average human
+
+7.0		p5 - Average Flow rate [lpd]
+
+28.0 		p6 - Simulation Run Time [d]
+
+# Microbial System:
+1.0		p7 - Number of representative sugar degrading biomass species
+1.0		p8 - Number of representative lactate degrading biomass species
+1.0		p9 - Number of representative Hydrogen degrading acetogenic biomass
+1.0		p10- Number of representative Hydrogen degrading methanogenic biomass
+0.0 		p11- Level of variance in which biological parameters may exist
+
+# Sensitivity/Stability Parameters:
+0.0	 	p12- Level of variance in which physical operations can exist 
+
+# Computing Parameters:
+0.0	  	p13- Grid Resolution 
+10		p14- Number of Iterations between output save				
